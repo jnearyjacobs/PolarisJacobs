@@ -25,7 +25,7 @@ ARG EXCLUDE_LOGFILTER=true
 # 6. Update permissions of /opt/mendix so that the app can run as a non-root user
 RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
     echo "CF Buildpack version ${CF_BUILDPACK}" &&\
-    curl -fsSL https://github.com/MXClyde/docker-mendix-buildpack/archive/master.zip -o /tmp/cf-mendix-buildpack.zip && \
+    curl -fsSL https://github.com/mendix/cf-mendix-buildpack/releases/download/${CF_BUILDPACK}/cf-mendix-buildpack.zip -o /tmp/cf-mendix-buildpack.zip && \
     python3 -m zipfile -e /tmp/cf-mendix-buildpack.zip /opt/mendix/buildpack/ &&\
     rm /tmp/cf-mendix-buildpack.zip &&\
     chgrp -R 0 /opt/mendix &&\
